@@ -26,7 +26,7 @@ var i18n = (function() {
 
   var locales;
   if (navigator.languages) {
-    locales = navigator.languages;
+    locales = Array.prototype.slice.call(navigator.languages); // navigator.languages is a read-only collection: convert to new array here
   } else {
     var locale = navigator.userLanguage || navigator.language;
     if (typeof(locale) == "string") {
